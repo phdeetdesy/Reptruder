@@ -952,7 +952,7 @@ try {
             if (multiBoundary.length() > 0 && targetParam.isGetParameter() == false) {
                 retBytes = this.replaceMultipartParams(orgReqBytes, targetParam, newValue.getBytes(this.charset), multiBoundary.getBytes(this.charset));
             } else {
-                this.parent.printStr("sameindex: " + String.valueOf(targetParam.sameIndex));
+//                this.parent.printStr("sameindex: " + String.valueOf(targetParam.sameIndex));
                 if (targetParam.sameIndex > 1) {
                     retBytes = modifyParamByIndex(orgReqBytes, targetParam.getType(), targetParam.getName(), newValue, targetParam.sameIndex);
                 } else {
@@ -980,9 +980,9 @@ try {
         List<ReqResParameter> tempParams = tempReqEntry.getBodyParameters();
         for (int i=0; i<tempParams.size(); i++) {
             ReqResParameter p = tempParams.get(i);
-                this.parent.printStr("mod sameindex: " + String.valueOf(p.sameIndex) + " : " + p.getValue());
+//                this.parent.printStr("mod sameindex: " + String.valueOf(p.sameIndex) + " : " + p.getValue());
             if (p.getName().equals(name) && p.sameIndex == index) {
-                this.parent.printStr("mod ns: " + String.valueOf(p.getNameStart()));
+//                this.parent.printStr("mod ns: " + String.valueOf(p.getNameStart()));
 
                 String newParam = name + "=" + value;
                 byte[] newParamBytes = newParam.getBytes();
@@ -1065,8 +1065,8 @@ try {
                 newReqLength += newParamBytes.length;
             } else {
                 newReqLength += paramBytes.length;
-                this.parent.printStr("hello0");
-                this.parent.printStr(new String(paramBytes));
+//                this.parent.printStr("hello0");
+//                this.parent.printStr(new String(paramBytes));
             }
         }
 

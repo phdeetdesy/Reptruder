@@ -629,7 +629,7 @@ class RunProcess extends Thread {
         reqBytes = this.parent.helpers.buildHttpMessage(reqInfo.getHeaders(), messageBody);
         
         // デバッグ
-        this.parent.printStr(new String(reqBytes));
+//        this.parent.printStr(new String(reqBytes));
         
         IHttpRequestResponse res =
             this.parent.callbacks.makeHttpRequest(serv, reqBytes);
@@ -643,7 +643,7 @@ class RunProcess extends Thread {
                 resHeader += resInfo.getHeaders().get(i) + "\n";
             }
         }
-        this.parent.printStr(resHeader);
+//        this.parent.printStr(resHeader);
         
         return res;
     }
@@ -674,11 +674,11 @@ class RunProcess extends Thread {
                 int resNum = ppi.targetResponseInfo.responseNumber;
                 // RequestEntryのリストから、#番号が何番目かを確認
                 int index = 0;
-                for (ThreadResultInfo re: resultList) {
+                for (index = resultList.size()-1; index>=0; index--) {
+                    ThreadResultInfo re = resultList.get(index);
                     if (re.orgNumber == resNum) {
                         break;
                     }
-                    index++;
                 }
                 // 受信しているレスポンス一覧から該当レスポンスを取得
                 byte[] srcres = null;
